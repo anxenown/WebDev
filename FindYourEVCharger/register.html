@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body><center>
     <div class="container">
         <h1>Add New Charging Station</h1>
         <form id="registerForm" class="register-form">
@@ -33,18 +33,23 @@
             </div>
 
             <div class="form-group">
-                <label for="status">Status:</label>
-                <select id="status" name="status">
-                    <option value="Available">Available</option>
-                    <option value="In Use">In Use</option>
-                    <option value="Under Maintenance">Under Maintenance</option>
+                <label for="type">Type:</label>
+                <select id="status" name="type">
+                    <option value="Charger">Charger</option>
+                    <option value="Charging Facility">Charging Facility</option>
                 </select>
             </div>
 
             <button type="submit">Add Station</button>
         </form>
         <a href="index.html"><button class="back-btn">Back to Locator</button></a>
-    </div>
+    </div></center>
+    <script>
+        // Check if admin is logged in
+        if (localStorage.getItem('isAdminLoggedIn') !== 'true') {
+            window.location.href = 'admin-login.html';
+        }
+    </script>
     <script src="register.js"></script>
 </body>
 

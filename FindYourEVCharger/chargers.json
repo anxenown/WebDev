@@ -1,5 +1,5 @@
 [
-    {"name": "Tata Power - Andheri", "address": "Andheri East, Mumbai, MH", "lat": 19.1185, "lng": 72.8479, "status": "Available"},
-    {"name": "Magenta Power - Bandra", "address": "Bandra West, Mumbai, MH", "lat": 19.0607, "lng": 72.8295, "status": "Available"},
-    {"name": "Magent Power - Bandr", "address": "Bandr West, Mumbai, MH", "lat": 19.0607, "lng": 72.8295, "status": "Available"}
+    {"name": "Tata Power - Andheri", "address": "Andheri East, Mumbai, MH", "lat": 19.1185, "lng": 72.8479, "status": "Charger"},
+    {"name": "Magenta Power - Bandra", "address": "Bandra West, Mumbai, MH", "lat": 19.0607, "lng": 72.8295, "status": "Charger"},
+    {"name": "Magent Power - Bandr", "address": "Bandr West, Mumbai, MH", "lat": 19.0607, "lng": 72.8295, "status": "Charger"}
 ]

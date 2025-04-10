@@ -26,7 +26,7 @@ function addMarkers(chargers) {
     chargers.forEach(charger => {
         L.marker([charger.lat, charger.lng])
             .addTo(map)
-            .bindPopup(`<b>${charger.name}</b><br>${charger.address}<br>Status: ${charger.status}`);
+            .bindPopup(`<b>${charger.name}</b><br>${charger.address}<br>Type: ${charger.status}`);
     });
 }
 
@@ -40,7 +40,7 @@ function displayChargers(chargers) {
         div.innerHTML = `
             <h3>${charger.name}</h3>
             <p>${charger.address}</p>
-            <p>Status: ${charger.status}</p>
+            <p>Type: ${charger.status}</p>
             <button class="directions-btn" onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=${charger.lat},${charger.lng}', '_blank')">
                 Get Directions
             </button>
