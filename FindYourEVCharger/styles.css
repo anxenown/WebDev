@@ -1,0 +1,273 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+.add-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #3498db;
+    padding: 6px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.container {
+    max-width: 1200px;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #2980b9;
+}
+
+main {
+    display: flex;
+    gap: 30px;
+}
+
+.map-container {
+    flex: 2;
+    height: 500px;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.charger-list {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.charger-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.charger-item:last-child {
+    border-bottom: none;
+}
+
+.charger-item h3 {
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.charger-item p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* styles.css - add these new styles */
+.charger-item .directions-btn {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.charger-item .directions-btn:hover {
+    background-color: #219653;
+}
+
+/* Add to styles.css */
+.register-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.register-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.register-form button:hover {
+    background-color: #2980b9;
+}
+.back-btn{
+    background-color: #3498db;
+    padding: 6px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    .add-button {
+        position: static;
+        margin-top: 1%;
+        margin-left: 2%;
+    }
+    
+    .container {
+        padding: 10px;
+        /* Reduce padding on smaller screens */
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        /* Smaller heading */
+    }
+
+    .search-bar {
+        flex-direction: column;
+        /* Stack search input and button */
+        align-items: center;
+    }
+
+    .search-bar input,
+    .search-bar button {
+        max-width: 100%;
+        /* Full width on mobile */
+        width: 100%;
+    }
+
+    main {
+        flex-direction: column;
+        /* Stack map and list vertically */
+        gap: 20px;
+    }
+
+    .map-container {
+        flex: none;
+        /* Remove flex growth */
+        height: 300px;
+        /* Reduce map height on mobile */
+    }
+
+    .charger-list {
+        flex: none;
+        /* Remove flex growth */
+        max-height: none;
+        /* Remove height restriction */
+        padding: 15px;
+    }
+
+    .charger-item {
+        padding: 10px;
+        /* Slightly less padding */
+    }
+
+    .register-form {
+        padding: 15px;
+        /* Reduce padding */
+        max-width: 100%;
+        /* Full width on mobile */
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 10px;
+        /* Slightly larger padding for touch */
+    }
+
+    .register-form button,
+    .search-bar button,
+    .charger-item .directions-btn {
+        padding: 12px;
+        /* Larger tap area for buttons */
+        font-size: 16px;
+        /* Larger text for readability */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem;
+        /* Even smaller for very small screens */
+    }
+
+    .map-container {
+        height: 250px;
+        /* Further reduce map height */
+    }
+
+    .charger-item h3 {
+        font-size: 1rem;
+        /* Smaller title */
+    }
+
+    .charger-item p {
+        font-size: 12px;
+        /* Smaller text */
+    }
+}
