@@ -11,9 +11,9 @@ body {
     color: #333;
 }
 .add-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
+position: static;
+    margin-top: 1%;
+    margin-left: 2%;
     background-color: #3498db;
     padding: 6px;
     color: white;
