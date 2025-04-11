@@ -6,9 +6,9 @@
 ### Site Link:   https://anxenown.github.io/WebDev/FindYourEVCharger/index.html
 
 ### Description:
-#### As per increase in demand of Electric Vehicle problem not able to find 
+#### As per increase in demand of Electric Vehicle, problem not able to find 
 #### charging locations arises. It is a static site for finding electric chargers or 
-#### charging facilities in cities making it convenient andreliable.
+#### charging facilities in cities making it convenient and reliable.
 
 ### Features:
 #### ) Time Saving
