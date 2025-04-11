@@ -1,5 +1,14 @@
 [
     {"name": "Tata Power - Andheri", "address": "Andheri East, Mumbai, MH", "lat": 19.1185, "lng": 72.8479, "status": "Charger"},
     {"name": "Magenta Power - Bandra", "address": "Bandra West, Mumbai, MH", "lat": 19.0607, "lng": 72.8295, "status": "Charger"},
-    {"name": "Magent Power - Bandr", "address": "Bandr West, Mumbai, MH", "lat": 19.0607, "lng": 72.8295, "status": "Charger"}
+    {"name": "IndianOil", "address": "Ground Floor, Near collectrate, Near, Faizabad Rd, Barabanki, Uttar Pradesh", "lat": 26.923187, "lng": 81.175938, "status": "Charging Facility"},
+    {"name": "CNG (online)and Petrol Pump Barabanki (Srivastava Fuel Centre)", "address": "Faizabad Rd, Barabanki, Uttar Pradesh 225001", "lat": 26.915687, "lng": 81.166562, "status": "Charging Facility"},
+    {"name": "Satguru Filling Station-HP Petrol Pump", "address": "Barail, Barabanki, Barel, Uttar Pradesh", "lat": 26.907688, "lng": 81.201937, "status": "Charging Facility"},
+    {"name": "HP PETROL PUMP / CNG PUMP - BANSAL TRADING CO.", "address": "HP Dealer Railway Road Barabanki UP, Lucknow, Uttar Pradesh", "lat": 26.928750, "lng": 81.213750, "status": "Charging Facility"},
+    {"name": "Regal Palace", "address": "Regal Palace, Jal Nigam Rd, Awas Vikas Colony, Barabanki, Uttar Pradesh", "lat": 26.917938, "lng": 81.181938, "status": "Charging Facility"},
+    {"name": "Tata Power Charging Station", "address": "11-CP/2, Vikas Nagar Extension,, Tedhi Pulia Ring Rd, Lucknow, Uttar Pradesh", "lat": 26.900813, "lng": 80.964438, "status": "Charger"},
+    {"name": "Glida Charging Station", "address": "Gomti Nagar, Lucknow, Uttar Pradesh", "lat": 26.837812, "lng": 80.985812, "status": "Charger"},
+    {"name": "Statiq Charging Station", "address": "TCG, 77, Vijaipur Colony, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh", "lat": 26.863937, "lng": 81.008313, "status": "Charger"},
+    {"name": "Adani Charging Station", "address": "Chillawan, Amausi, Lucknow, Uttar Pradesh", "lat": 26.766188, "lng": 80.884687, "status": "Charger"},
+    {"name": "Electric Vehicle Charging Station", "address": "643M/0711-A, Infront of Bal Nikunj Inter College, Srinagar Colony, Madiyaon Thana, Mohibullapur, Lucknow, Uttar Pradesh", "lat": 26.916688, "lng": 80.933437, "status": "Charger"}
 ]
