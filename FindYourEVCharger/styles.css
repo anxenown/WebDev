@@ -11,9 +11,9 @@ body {
     color: #333;
 }
 .add-button {
-    position: fixed;
-    top: 1%;
-    right: 2%;
+    position: static;
+    margin-top: 1%;
+    margin-left: 2%;
     background-color: #3498db;
     padding: 6px;
     color: white;
@@ -33,7 +33,10 @@ header {
 
 h1 {
     color: #0f0e0e;
-    margin-bottom: 20px;
+    margin-bottom: 4%;
+ 
+  
+  
 }
 
 .search-bar {
@@ -257,10 +260,7 @@ main {
         }
     }
     
-    .container {
-        padding: 10px;
-        /* Reduce padding on smaller screens */
-    }
+
 
     h1 {
         font-size: 1.5rem;
@@ -329,11 +329,7 @@ main {
     }
 
 @media (max-width: 480px) {
-    .add-button{
-    position: static;
-        margin-top: 1%;
-        margin-left: 2%;
-    }
+   
     h1 {
         font-size: 1.2rem;
         /* Even smaller for very small screens */
