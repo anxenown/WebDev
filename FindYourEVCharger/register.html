@@ -42,13 +42,82 @@
 
             <button type="submit">Add Station</button>
         </form>
-        <a href="index.html"><button class="back-btn">Back to Locator</button></a>
-    </div></center>
+       
+    </div>
     <script>
         // Check if admin is logged in
         if (localStorage.getItem('isAdminLoggedIn') !== 'true') {
             window.location.href = 'admin-login.html';
         }
+    </script>
+
+    <h1>Delete Charging Station</h1>
+    <form id="deleteForm" class="delete-form">
+        <div class="form-group">
+            <label for="chargerSelect">Select Charger to Delete:</label>
+            <select id="chargerSelect" name="chargerId" required>
+                <option value="">-- Select a Charger --</option>
+                <!-- Charger options will be populated dynamically via JavaScript -->
+            </select>
+        </div>
+        <button type="submit">Delete Station</button>
+    </form>
+    
+    
+    </div>
+    <br>
+    <a href="index.html"><button class="back-btn">Back to Locator</button></a>
+    
+    </center>
+    <script>
+
+        // Function to populate charger dropdown (example)
+        async function populateChargerDropdown() {
+            try {
+                // Assuming you have an API endpoint to fetch chargers
+                const response = await fetch('api/chargers'); // Adjust URL as needed
+                const chargers = await response.json();
+                const select = document.getElementById('chargerSelect');
+
+                chargers.forEach(charger => {
+                    const option = document.createElement('option');
+                    option.value = charger.id;
+                    option.textContent = charger.name;
+                    select.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error fetching chargers:', error);
+            }
+        }
+
+        // Call to populate dropdown on page load
+        document.addEventListener('DOMContentLoaded', populateChargerDropdown);
+
+        // Handle delete form submission
+        document.getElementById('deleteForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const chargerId = document.getElementById('chargerSelect').value;
+
+            if (chargerId) {
+                try {
+                    const response = await fetch(`api/chargers/${chargerId}`, {
+                        method: 'DELETE'
+                    });
+
+                    if (response.ok) {
+                        alert('Charger deleted successfully');
+                        // Refresh dropdown
+                        document.getElementById('chargerSelect').innerHTML = '<option value="">-- Select a Charger --</option>';
+                        populateChargerDropdown();
+                    } else {
+                        alert('Failed to delete charger');
+                    }
+                } catch (error) {
+                    console.error('Error deleting charger:', error);
+                    alert('Error deleting charger');
+                }
+            }
+        });
     </script>
     <script src="register.js"></script>
 </body>
