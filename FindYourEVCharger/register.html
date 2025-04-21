@@ -44,13 +44,7 @@
         </form>
        
     </div>
-    <script>
-        // Check if admin is logged in
-        if (localStorage.getItem('isAdminLoggedIn') !== 'true') {
-            window.location.href = 'admin-login.html';
-        }
-    </script>
-
+ 
     <h1>Delete Charging Station</h1>
     <form id="deleteForm" class="delete-form">
         <div class="form-group">
@@ -68,58 +62,85 @@
     <br>
     <a href="index.html"><button class="back-btn">Back to Locator</button></a>
     
-    </center>
+
     <script>
 
+        // Check if admin is logged in
+    if (localStorage.getItem('isAdminLoggedIn') !== 'true') {
+        window.location.href = 'admin-login.html';
+    }
         // Function to populate charger dropdown (example)
-        async function populateChargerDropdown() {
-            try {
-                // Assuming you have an API endpoint to fetch chargers
-                const response = await fetch('api/chargers'); // Adjust URL as needed
-                const chargers = await response.json();
-                const select = document.getElementById('chargerSelect');
-
-                chargers.forEach(charger => {
-                    const option = document.createElement('option');
-                    option.value = charger.id;
-                    option.textContent = charger.name;
-                    select.appendChild(option);
-                });
-            } catch (error) {
-                console.error('Error fetching chargers:', error);
-            }
-        }
-
-        // Call to populate dropdown on page load
-        document.addEventListener('DOMContentLoaded', populateChargerDropdown);
-
-        // Handle delete form submission
-        document.getElementById('deleteForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const chargerId = document.getElementById('chargerSelect').value;
-
-            if (chargerId) {
+         async function initializeChargers() {
                 try {
-                    const response = await fetch(`api/chargers/${chargerId}`, {
-                        method: 'DELETE'
-                    });
-
-                    if (response.ok) {
-                        alert('Charger deleted successfully');
-                        // Refresh dropdown
-                        document.getElementById('chargerSelect').innerHTML = '<option value="">-- Select a Charger --</option>';
-                        populateChargerDropdown();
-                    } else {
-                        alert('Failed to delete charger');
+                    // Check if chargers exist in localStorage
+                    if (!localStorage.getItem('chargers')) {
+                        const response = await fetch('chargers.json');
+                        if (!response.ok) throw new Error('Failed to fetch chargers.json');
+                        const chargers = await response.json();
+                        localStorage.setItem('chargers', JSON.stringify(chargers));
                     }
                 } catch (error) {
-                    console.error('Error deleting charger:', error);
-                    alert('Error deleting charger');
+                    console.error('Error initializing chargers:', error);
+                    alert('Failed to load initial charger data. Using empty list.');
+                    localStorage.setItem('chargers', JSON.stringify([]));
                 }
             }
-        });
+
+            // Function to populate charger dropdown from localStorage
+            function populateChargerDropdown() {
+                try {
+                    const chargers = JSON.parse(localStorage.getItem('chargers') || '[]');
+                    const select = document.getElementById('chargerSelect');
+
+                    // Clear existing options except the default
+                    select.innerHTML = '<option value="">-- Select a Charger --</option>';
+
+                    chargers.forEach(charger => {
+                        const option = document.createElement('option');
+                        option.value = charger.id;
+                        option.textContent = charger.name;
+                        select.appendChild(option);
+                    });
+                } catch (error) {
+                    console.error('Error populating dropdown:', error);
+                    alert('Failed to load chargers. Please try again.');
+                }
+            }
+
+            // Initialize chargers and populate dropdown on page load
+            document.addEventListener('DOMContentLoaded', async () => {
+                await initializeChargers();
+                populateChargerDropdown();
+            });
+
+            // Handle delete form submission
+            document.getElementById('deleteForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const chargerId = document.getElementById('chargerSelect').value;
+
+                if (chargerId) {
+                    try {
+                        // Get current chargers from localStorage
+                        let chargers = JSON.parse(localStorage.getItem('chargers') || '[]');
+
+                        // Filter out the charger to delete
+                        chargers = chargers.filter(charger => charger.id !== chargerId);
+
+                        // Save updated chargers back to localStorage
+                        localStorage.setItem('chargers', JSON.stringify(chargers));
+
+                        alert('Charger deleted successfully');
+                        // Refresh dropdown
+                        populateChargerDropdown();
+                    } catch (error) {
+                        console.error('Error deleting charger:', error);
+                        alert('Error deleting charger. Please try again.');
+                    }
+                }
+            });
     </script>
     <script src="register.js"></script>
+        </center>
 </body>
 
 </html>

@@ -3,6 +3,7 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
     const newCharger = {
+        id: Date.now().toString(), 
         name: document.getElementById('name').value,
         address: document.getElementById('address').value,
         lat: parseFloat(document.getElementById('latitude').value),
@@ -21,4 +22,10 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
     
     // Redirect to index.html
     window.location.href = 'index.html';
+    document.getElementById('registerForm').reset();
+    populateChargerDropdown();
+});
+document.getElementById('registerForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    
 });
